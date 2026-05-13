@@ -1,0 +1,69 @@
+{
+  "name": "codex-quota",
+  "displayName": "Codex Quota",
+  "description": "Show Codex ChatGPT plan usage remaining in the VS Code status bar.",
+  "version": "0.0.1",
+  "publisher": "Asuka Langley",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codexQuota.refresh",
+        "title": "Refresh Codex Quota",
+        "category": "Codex Quota",
+        "icon": "$(refresh)"
+      }
+    ],
+    "configuration": {
+      "title": "Codex Quota",
+      "properties": {
+        "codexQuota.pollIntervalSeconds": {
+          "type": "number",
+          "default": 60,
+          "minimum": 15,
+          "description": "How often to refresh Codex usage in seconds."
+        },
+        "codexQuota.codexHome": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "description": "Path to Codex home. Defaults to CODEX_HOME, then ~/.codex."
+        },
+        "codexQuota.codexExecutablePath": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "description": "Optional path to the Codex executable used to refresh ChatGPT auth tokens through codex app-server."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p .",
+    "test": "npm run compile && node --test out/test/**/*.test.js",
+    "vscode:prepublish": "npm run compile",
+    "package": "npm run compile && vsce package --no-dependencies --allow-missing-repository"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/vscode": "^1.96.0",
+    "@vscode/vsce": "^3.2.2",
+    "typescript": "^5.9.0"
+  }
+}
