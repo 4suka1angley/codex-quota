@@ -14,6 +14,14 @@ The extension reads local Codex ChatGPT auth from `~/.codex/auth.json` and calls
 
 - `Codex Quota: Refresh Codex Quota`
 
+## Install from GitHub Release
+
+Download `codex-quota-0.0.1.vsix` from the latest GitHub Release, then run:
+
+```sh
+code --install-extension codex-quota-0.0.1.vsix
+```
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
