@@ -13,3 +13,10 @@ The extension reads local Codex ChatGPT auth from `~/.codex/auth.json` and calls
 ## Commands
 
 - `Codex Quota: Refresh Codex Quota`
+
+## License
+
+MIT. See [LICENSE](LICENSE).
+
+Forks and modifications are allowed under the MIT License. Changes are merged
+into the main repository only after maintainer review and approval.
